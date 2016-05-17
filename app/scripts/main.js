@@ -6,9 +6,8 @@ window.$ = window.jQuery = require('jquery');
 // const slick = require('./slick');
 
 (function($) {
-  var Wrapper = this,
-      currentWrapper = $('.currentWrapper');
-      
+  
+
   $.fn.fiveAce = function(method) {
         // currentWrapper.addClass('currentWrapper');
     if ( methods[method] ) {
@@ -23,6 +22,8 @@ window.$ = window.jQuery = require('jquery');
   //Methods
   var methods = {
     init : function( options ) {
+      var Wrapper = this,
+          currentWrapper = $('.currentWrapper');
       var _defaultSettings = {
           'gap' : 30,
           'item' : '.item',
@@ -33,20 +34,20 @@ window.$ = window.jQuery = require('jquery');
 
       return this.each(function(){
         console.log('initial');
-        console.log(currentWrapper.find(_defaultSettings.item));
+        console.log(currentWrapper.find(_settings.item));
 
         //Positioning
         items.each(function(index){
           console.log($(this));
-          $(this).css('bottom', _defaultSettings.gap*-1*index);
-          $(this).css('z-index', items.length-index )
+          $(this).css('bottom', _settings.gap*-1*index);
+          $(this).css('z-index', items.length-index );
+          $(this).attr('data-rel', index);
         });
 
-      });
-    },
-    positioning: function(){
-      return this.each(function(){
-        alert("Hello");
+        items.on('click', function(){
+          positioning(currentWrapper, $(this), $(this).attr('data-rel'), _settings.gap );
+        });
+
       });
     },
     next: function() {
@@ -56,6 +57,30 @@ window.$ = window.jQuery = require('jquery');
 
     }
   };
+
+  //Private Function
+  function positioning(wrapper, obj, objIndex, gap) {
+    //Positioning
+    // obj.css('z-index', 10);
+    wrapper.children().each(function(index){
+      if ($(this).attr('data-rel') === objIndex) {
+        //Remove previous
+        // $(this).nextAll().wrapAll('<div class=currentWrapper></div>');
+        var limit = $(this).prev().nextAll();
+        $(this).prev().nextAll().each(function(newI){
+
+          //Reposition
+          $(this).css('bottom', gap*-1*newI);
+          $(this).css('z-index', limit.length-newI );
+          $(this).attr('data-rel', newI);
+
+        }).wrapAll('<div class=currentWrapper></div>');
+        console.log(typeof $(this).nextAll());
+      } else {
+        console.log('not match');
+      }
+    });
+  }
 
 })(jQuery);
 

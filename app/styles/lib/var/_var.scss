@@ -1,0 +1,22 @@
+//Basic Colors // Do Not Modify
+$white: #ffffff;
+$black: #000000;
+$gray: #cccccc;
+$smokygray: #f7f7f7;
+$lightgray: #EEEEEE;
+$darkgray: #666666;
+$darkestgray: #3e3e3e;
+
+//Set Main Color
+$main: #1565c0;
+$yellow: #ffd150;
+
+//
+$main-dark: darken($main, 20%);
+$main-light: lighten($main, 20%);
+
+
+
+//Fonts
+$sans-serif: "proxima-nova", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;
+$brandon: "brandon-grotesque", "Helvetica Neue", Arial, "source-han-sans-traditional", sans-serif;

@@ -1,0 +1,17 @@
+extends layouts/default
+
+block content
+  h1 fiveAce slider
+  .demo-wrapper
+    section
+      #fiveAce
+        .item
+          img(src="http://unsplash.it/100/100")
+          h3 title
+          p content paragraph
+        .currentWrapper
+          each i in Array(10)
+            .item
+              img(src="http://unsplash.it/100/100")
+              h3 title
+              p content paragraph

@@ -1,0 +1,75 @@
+body {
+	font-family: $sans-serif;
+	font-size: 124%;
+	line-height: 1.8;
+	letter-spacing: .01em;
+}
+
+//Typography
+
+//Align
+.centered {
+	text-align: center;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.justify {
+	text-align: justify;
+	text-justify: inter-ideograph;
+	-ms-text-justify: inter-ideograph; /*IE9*/
+	-moz-text-align-last:justify; /*Firefox*/
+	-webkit-text-align-last:justify; /*Chrome*/
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 100%;
+	}
+}
+
+
+$largetst : 2em;
+
+h1 {
+	font-size: $largetst;
+}
+h2 {
+	font-size: $largetst*0.8;
+}
+h3 {
+	font-size: $largetst*0.8*0.8;
+}
+h4 {
+	font-size: $largetst*0.8*0.8*0.8;
+}
+h5 {
+	font-size: $largetst*0.8*0.8*0.8;
+}
+h6 {
+	font-size: $largetst*0.8*0.8*0.8*0.8;
+}
+
+@include breakpoint(768px) {
+	$largetst : 2.6em;
+	h1 {
+		font-size: $largetst;
+	}
+	h2 {
+		font-size: $largetst*0.8;
+	}
+	h3 {
+		font-size: $largetst*0.8*0.8;
+	}
+	h4 {
+		font-size: $largetst*0.8*0.8*0.8;
+	}
+	h5 {
+		font-size: $largetst*0.8*0.8*0.8;
+	}
+	h6 {
+		font-size: $largetst*0.8*0.8*0.8*0.8;
+	}
+}

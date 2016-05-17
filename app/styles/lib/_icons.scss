@@ -1,0 +1,23 @@
+*[class^="icons-"] {
+	display: inline-block;
+	vertical-align: middle;
+}
+//Icons using retina-sprites mixin
+.icons-mobile-btn {
+	@include sprite($mobile-menu);
+}
+
+//Icons using retina-sprites mixin
+.icons-facebook {
+	@include sprite($facebook);
+}
+.icons-instagram {
+	@include sprite($instagram);
+}
+.icons-twitter {
+	@include sprite($twitter);
+}
+.icons-mail {
+	@include sprite($mail);
+}
+

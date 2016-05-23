@@ -33,8 +33,7 @@
           Wrapper.prepend(controls);
       var _defaultSettings = {
           'gap' : 30,
-          'item' : '.item',
-          'var_2' : '2'
+          'item' : '.item'
       };
 
       var _settings = $.extend(_defaultSettings, options);
@@ -70,7 +69,7 @@
   function slideNext(currentWrapper, options){
     console.log('go next');
     //Fake Item
-    var fakeEl = $(currentWrapper).children('.item:first-child').clone();
+    var fakeEl = $(currentWrapper).children(options.item + ':first-child').clone();
     
     var tempWrapper = $('<div class=tempWrapper></div>')
     
@@ -84,8 +83,8 @@
       'top': 0
     });
     //Remove first item
-      currentWrapper.children('.item').remove();
-      $('.tempWrapper').children('.item').each(function(index){
+      currentWrapper.children(options.item).remove();
+      $('.tempWrapper').children(options.item).each(function(index){
         $(this).css('top', options.gap*index );
         $(this).css('z-index', $('.tempWrapper').children().length-index );
         $(this).attr('data-rel', index);
@@ -107,14 +106,14 @@
         opacity: 1
       }, 300)
       //Release
-      $('.tempWrapper').children('.item').unwrap();
+      $('.tempWrapper').children(options.item).unwrap();
     });
   
   }
   function slidePrev(currentWrapper, options){
     console.log('go prev');
     //Fake Item
-    var fakeEl = $(currentWrapper).children('.item:first-child').clone();
+    var fakeEl = $(currentWrapper).children(options.item + ':first-child').clone();
     var tempWrapper = $('<div class=tempWrapper></div>')
     
     //Wrap all items except first Element
@@ -127,8 +126,8 @@
       'top': 0
     });
     //Remove last item
-      currentWrapper.children('.item').remove();
-      $('.tempWrapper').children('.item').each(function(index){
+      currentWrapper.children(options.item).remove();
+      $('.tempWrapper').children(options.item).each(function(index){
         $(this).css('top', options.gap*index+options.gap );
         $(this).css('z-index', $('.tempWrapper').children().length-index);
         $(this).attr('data-rel', index);
@@ -151,7 +150,7 @@
         opacity: 1
       }, 300)
       //Release
-      $('.tempWrapper').children('.item').unwrap();
+      $('.tempWrapper').children(options.item).unwrap();
     });
   }
 })(jQuery);

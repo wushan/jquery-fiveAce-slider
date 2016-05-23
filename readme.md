@@ -4,7 +4,8 @@
 
 ## Usage
 ### Structure
-`
+```html
+<pre>
 <div id="fiveAce">
   <div class="currentWrapper">
     <div class="item">
@@ -64,7 +65,8 @@
     </div>
   </div>
 </div>
-`
+</pre>
+```
 
 ### Trigger
 `$('#fiveAce').fiveAce();`

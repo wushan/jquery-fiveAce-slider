@@ -66,31 +66,12 @@
   };
 
   //Private Function
-  function positioning(wrapper, obj, objIndex, gap) {
-    //Positioning
-    // obj.css('z-index', 10);
-    wrapper.children().each(function(index){
-      if ($(this).attr('data-rel') === objIndex) {
-        //Remove previous
-        // $(this).nextAll().wrapAll('<div class=currentWrapper></div>');
-        var limit = $(this).prev().nextAll();
-        $(this).prev().nextAll().each(function(newI){
-
-          //Reposition
-          $(this).css('bottom', gap*-1*newI );
-          $(this).css('z-index', limit.length-newI );
-          $(this).attr('data-rel', newI);
-
-        }).wrapAll('<div class=currentWrapper></div>');
-        console.log(typeof $(this).nextAll());
-      } else {
-        console.log('not match');
-      }
-    });
-  }
+  
   function slideNext(currentWrapper, options){
     console.log('go next');
-    var fakeEl= $('<div data-id="0" class="item" data-rel="0" style="top: 0px; z-index: 6;"><div class="thumb"><div class="thumb-inner"><img src="http://unsplash.it/100/100"></div></div><div class="content"><div class="content-inner"><h4><a href="javascript:;">title</a></h4><p>Veniam occaecat ullamco officia enim cillum quis voluptate dolor proident dolore proident anim duis id elit laborum enim in elit </p></div></div></div>');
+    //Fake Item
+    var fakeEl = $(currentWrapper).children('.item:first-child').clone();
+    
     var tempWrapper = $('<div class=tempWrapper></div>')
     
     //Wrap all items except first Element
@@ -132,7 +113,8 @@
   }
   function slidePrev(currentWrapper, options){
     console.log('go prev');
-    var fakeEl= $('<div data-id="0" class="item" data-rel="0" style="top: 0px; z-index: 6;"><div class="thumb"><div class="thumb-inner"><img src="http://unsplash.it/100/100"></div></div><div class="content"><div class="content-inner"><h4><a href="javascript:;">title</a></h4><p>Veniam occaecat ullamco officia enim cillum quis voluptate dolor proident dolore proident anim duis id elit laborum enim in elit </p></div></div></div>');
+    //Fake Item
+    var fakeEl = $(currentWrapper).children('.item:first-child').clone();
     var tempWrapper = $('<div class=tempWrapper></div>')
     
     //Wrap all items except first Element

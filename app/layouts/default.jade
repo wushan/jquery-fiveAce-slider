@@ -23,7 +23,7 @@ html(lang="zh-TW")
         opacity: 1;
         transition: .3s all ease-in;
       }
-    // build:css styles/main.css
+    // build:css styles/fiveAce.css
     link(rel='stylesheet' href='styles/main.css')
     // endbuild
   body
@@ -31,9 +31,12 @@ html(lang="zh-TW")
 
     //-Scripts
     block scripts
-      // build:js scripts/main.js
+      script(src="scripts/jquery.min.js")
+      // build:js scripts/fiveAce.js
       script(src="scripts/bundle.js")
       // endbuild
+      script.
+        $('#fiveAce').fiveAce();
 
       // Google Analytics: change UA-XXXXX-X to be your site's ID.
       script.

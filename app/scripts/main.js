@@ -1,7 +1,7 @@
 //Browserify
 //Require
 //Expose Jquery Globally.
-window.$ = window.jQuery = require('jquery');
+// window.$ = window.jQuery = require('jquery');
 
 // const slick = require('./slick');
 
@@ -112,7 +112,7 @@ window.$ = window.jQuery = require('jquery');
 
       fakeEl.css('z-index',0);
       fakeEl.css('top',$('.tempWrapper').children().length*options.gap+options.gap);
-
+      fakeEl.css('opacity',0);
     //
     $('.tempWrapper').animate({
       top: options.gap*-1/3
@@ -122,15 +122,13 @@ window.$ = window.jQuery = require('jquery');
       $('.tempWrapper').append(fakeEl);
       // fakeEl.css('top',$('.tempWrapper').children().length*options.gap-options.gap);
       fakeEl.animate({
-        top: $('.tempWrapper').children().length*options.gap-options.gap
+        top: $('.tempWrapper').children().length*options.gap-options.gap,
+        opacity: 1
       }, 300)
       //Release
       $('.tempWrapper').children('.item').unwrap();
     });
-    
-
-    
-
+  
   }
   function slidePrev(currentWrapper, options){
     console.log('go prev');
@@ -156,22 +154,22 @@ window.$ = window.jQuery = require('jquery');
 
       fakeEl.css('z-index', 6);
       fakeEl.css('top', options.gap*-1);
+      fakeEl.css('opacity', 0);
 
     //
     $('.tempWrapper').animate({
-      top: options.gap*-1/3
+      top: options.gap
     }, 300, function(){
       
       //Load New item from bottom
       $('.tempWrapper').prepend(fakeEl);
       // fakeEl.css('top',$('.tempWrapper').children().length*options.gap-options.gap);
       fakeEl.animate({
-        top: 0
+        top: 0,
+        opacity: 1
       }, 300)
       //Release
       $('.tempWrapper').children('.item').unwrap();
     });
   }
 })(jQuery);
-
-$('#fiveAce').fiveAce();

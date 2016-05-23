@@ -1,4 +1,5 @@
 extends layouts/default
+include layouts/mixin/_mixin
 
 block content
   h1 fiveAce slider
@@ -6,8 +7,14 @@ block content
     section
       #fiveAce
         .currentWrapper
-          each i in Array(5)
-            .item
-              img(src="http://unsplash.it/100/100")
-              h3 title
-              p content paragraph
+          each i in [0,1,2,3,4,5]
+            .item(data-id=i)
+              .thumb
+                .thumb-inner
+                  img(src="http://unsplash.it/100/100")
+              .content
+                .content-inner
+                  h4
+                    a(href="javascript:;") title
+                  p
+                    +lipsum(20,'words')

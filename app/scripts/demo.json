@@ -1,0 +1,71 @@
+{
+	"articles": 
+	[
+		{
+		"id": 0,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 1,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 2,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 3,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 4,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 5,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 6,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 7,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 8,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 9,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		},
+		{
+		"id": 10,
+			"image": "http://unsplash.it/100/100",
+			"title": "blablablatitile",
+			"content": "some texts"
+		}
+	]
+}

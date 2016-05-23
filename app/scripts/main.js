@@ -90,20 +90,87 @@ window.$ = window.jQuery = require('jquery');
   }
   function slideNext(currentWrapper, options){
     console.log('go next');
+    var fakeEl= $('<div data-id="0" class="item" data-rel="0" style="top: 0px; z-index: 6;"><div class="thumb"><div class="thumb-inner"><img src="http://unsplash.it/100/100"></div></div><div class="content"><div class="content-inner"><h4><a href="javascript:;">title</a></h4><p>Veniam occaecat ullamco officia enim cillum quis voluptate dolor proident dolore proident anim duis id elit laborum enim in elit </p></div></div></div>');
     var tempWrapper = $('<div class=tempWrapper></div>')
+    
+    //Wrap all items except first Element
     currentWrapper.children(':not(:first-child)').wrapAll(tempWrapper);
+
     $('.tempWrapper').css({
       'z-index': 9999,
-      'position': 'absolute',
+      'position': 'relative',
       'width': '100%',
-      'top': options.gap
+      'top': 0
     });
+    //Remove first item
+      currentWrapper.children('.item').remove();
+      $('.tempWrapper').children('.item').each(function(index){
+        $(this).css('top', options.gap*index );
+        $(this).css('z-index', $('.tempWrapper').children().length-index );
+        $(this).attr('data-rel', index);
+      })
+
+      fakeEl.css('z-index',0);
+      fakeEl.css('top',$('.tempWrapper').children().length*options.gap+options.gap);
+
+    //
     $('.tempWrapper').animate({
-      top: options.gap*-1
-    }, 500);
+      top: options.gap*-1/3
+    }, 300, function(){
+      
+      //Load New item from bottom
+      $('.tempWrapper').append(fakeEl);
+      // fakeEl.css('top',$('.tempWrapper').children().length*options.gap-options.gap);
+      fakeEl.animate({
+        top: $('.tempWrapper').children().length*options.gap-options.gap
+      }, 300)
+      //Release
+      $('.tempWrapper').children('.item').unwrap();
+    });
+    
+
+    
+
   }
   function slidePrev(currentWrapper, options){
     console.log('go prev');
+    var fakeEl= $('<div data-id="0" class="item" data-rel="0" style="top: 0px; z-index: 6;"><div class="thumb"><div class="thumb-inner"><img src="http://unsplash.it/100/100"></div></div><div class="content"><div class="content-inner"><h4><a href="javascript:;">title</a></h4><p>Veniam occaecat ullamco officia enim cillum quis voluptate dolor proident dolore proident anim duis id elit laborum enim in elit </p></div></div></div>');
+    var tempWrapper = $('<div class=tempWrapper></div>')
+    
+    //Wrap all items except first Element
+    currentWrapper.children(':not(:last-child)').wrapAll(tempWrapper);
+
+    $('.tempWrapper').css({
+      'z-index': 9999,
+      'position': 'relative',
+      'width': '100%',
+      'top': 0
+    });
+    //Remove last item
+      currentWrapper.children('.item').remove();
+      $('.tempWrapper').children('.item').each(function(index){
+        $(this).css('top', options.gap*index+options.gap );
+        $(this).css('z-index', $('.tempWrapper').children().length-index);
+        $(this).attr('data-rel', index);
+      })
+
+      fakeEl.css('z-index', 6);
+      fakeEl.css('top', options.gap*-1);
+
+    //
+    $('.tempWrapper').animate({
+      top: options.gap*-1/3
+    }, 300, function(){
+      
+      //Load New item from bottom
+      $('.tempWrapper').prepend(fakeEl);
+      // fakeEl.css('top',$('.tempWrapper').children().length*options.gap-options.gap);
+      fakeEl.animate({
+        top: 0
+      }, 300)
+      //Release
+      $('.tempWrapper').children('.item').unwrap();
+    });
   }
 })(jQuery);
 

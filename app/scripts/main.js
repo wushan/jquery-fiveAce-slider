@@ -43,7 +43,7 @@
         console.log('initial');
 
         //Scale Container Size
-        currentWrapper.css('height', items.outerHeight() + items.length*_settings.gap);
+        currentWrapper.css('height', items.outerHeight() + (items.length-1)*_settings.gap);
 
         //Bind Controller Event
         prevBtn.on('click', function(){
